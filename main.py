@@ -22,7 +22,7 @@ class Menu(tk.Frame):
         root.resizable(0, 0)
         root.config(background = "#F5F5DC")
         self.start= tk.Frame(root, bg = "#F5F5DC")
-        self.start.grid(ipadx=415, ipady=275)
+        self.start.grid(ipadx=740, ipady=400)
         self.EilerWindow = tk.Frame(root, bg = "#F5F5DC")
         self.UpgradeEilerWindow = tk.Frame(root, bg = "#F5F5DC")
         self.create_widgets_start()
@@ -62,10 +62,9 @@ class Menu(tk.Frame):
 
     def create_widgets_EilerWindow(self):
         tk.Label(self.EilerWindow, text = "Метод Эйлера", font=("Segoe print", 18), bg = "#F5F5DC").place(x=270, y=30)
-        tk.Button(self.EilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=320)
         Eiler_list = Eiler(self.x_start, self.x_last, self.y, self.h, self.func)
-        y = 100
-        tk.Label(self.EilerWindow, text = "  x                   y                   y`                   yΔ", bg = "#F5F5DC").place(x=250, y=80)
+        y = 140
+        tk.Label(self.EilerWindow, text = "  x                   y                   y`                   yΔ", bg = "#F5F5DC").place(x=250, y=120)
         for elem in Eiler_list:
             string = ""
             for el in elem:
@@ -75,7 +74,11 @@ class Menu(tk.Frame):
                     string += str(el)+"                "
             tk.Label(self.EilerWindow, text = string, bg = "#F5F5DC").place(x=250, y=y)
             y+=20
-    
+        #FIXME: 
+        if y>=400:
+            root.geometry("740x" + str(y+80))
+        tk.Button(self.EilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=y+60)
+
     def create_widgets_UpgradeEilerWindow(self):
         tk.Label(self.UpgradeEilerWindow, text = "Усовершенствованный метод Эйлера", font=("Segoe print", 18), bg = "#F5F5DC").place(x=135, y=30)
         tk.Button(self.UpgradeEilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=320)
@@ -83,19 +86,21 @@ class Menu(tk.Frame):
     def create_start(self):
         self.EilerWindow.destroy()
         self.UpgradeEilerWindow.destroy()
-        self.start.grid(ipadx=415, ipady=275)
+        #FIXME:
+        root.geometry("740x400")
+        self.start.grid(ipadx=740, ipady=400)
         self.create_widgets_start()
 
     def create_EilerWindow(self):
         self.start.grid_forget()
         self.EilerWindow = tk.Frame(root, bg = "#F5F5DC")
-        self.EilerWindow.grid(ipadx=415, ipady=275)
+        self.EilerWindow.grid(ipadx=740, ipady=400)
         self.create_widgets_EilerWindow()
 
     def create_UpgradeEilerWindow(self):
         self.start.grid_forget()
         self.UpgradeEilerWindow = tk.Frame(root, bg = "#F5F5DC")
-        self.UpgradeEilerWindow.grid(ipadx=415, ipady=275)
+        self.UpgradeEilerWindow.grid(ipadx=740, ipady=400)
         self.create_widgets_UpgradeEilerWindow()
 
 
