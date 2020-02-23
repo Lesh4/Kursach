@@ -1,5 +1,6 @@
 import tkinter as tk
 from Eiler import Eiler
+from UpgradeEiler import UpgradeEiler
 from tkinter import messagebox
 
 """
@@ -8,7 +9,7 @@ TODO:
     a) first with values and metod`s buttons                 +
     b) result window
 2) add check for input values (x, y, h and function)
-2) code logic of Eiler
+2) code logic of Eiler                                       +
 3) code logic of Upgrade Eiler
 
 """
@@ -62,32 +63,35 @@ class Menu(tk.Frame):
 
     def create_widgets_EilerWindow(self):
         tk.Label(self.EilerWindow, text = "Метод Эйлера", font=("Segoe print", 18), bg = "#F5F5DC").place(x=270, y=30)
+        text = tk.Text(self.EilerWindow, bg = "#F5F5DC", height=14, width=50)
+        text.place(x=160, y=100)
+        sy = tk.Scrollbar(self.EilerWindow, orient=tk.VERTICAL, command=text.yview)
+        sy.place(x=720, y=0, height=400)
+
         Eiler_list = Eiler(self.x_start, self.x_last, self.y, self.h, self.func)
-        y = 140
-        tk.Label(self.EilerWindow, text = "  x                   y                   y`                   yΔ", bg = "#F5F5DC").place(x=250, y=120)
         for elem in Eiler_list:
-            string = ""
-            for el in elem:
-                if len(str(el)) >= 4:
-                    string += str(el)+"             "
-                else:
-                    string += str(el)+"                "
-            tk.Label(self.EilerWindow, text = string, bg = "#F5F5DC").place(x=250, y=y)
-            y+=20
-        #FIXME: 
-        if y>=400:
-            root.geometry("740x" + str(y+80))
-        tk.Button(self.EilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=y+60)
+            mas = [str(el) for el in elem]
+            string = "x = {0}\ny = {1}\ny` = {2}\nyΔ = {3}".format(mas[0], mas[1], mas[2], mas[3])
+            text.insert(tk.END, string+'\n\n')
+        tk.Button(self.EilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=340)
 
     def create_widgets_UpgradeEilerWindow(self):
         tk.Label(self.UpgradeEilerWindow, text = "Усовершенствованный метод Эйлера", font=("Segoe print", 18), bg = "#F5F5DC").place(x=135, y=30)
+        text = tk.Text(self.UpgradeEilerWindow, bg = "#F5F5DC", height=14, width=50)
+        text.place(x=160, y=100)
+        sy = tk.Scrollbar(self.UpgradeEilerWindow, orient=tk.VERTICAL, command=text.yview)
+        sy.place(x=720, y=0, height=400)
+
+        UpgradeEiler_list = UpgradeEiler(self.x_start, self.x_last, self.y, self.h, self.func)
+        for elem in UpgradeEiler_list:
+            mas = [str(el) for el in elem]
+            string = "x = {0}\ny = {1}\ny` = {2}\nyΔ = {3}".format(mas[0], mas[1], mas[2], mas[3])
+            text.insert(tk.END, string+'\n\n')
         tk.Button(self.UpgradeEilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=320)
 
     def create_start(self):
         self.EilerWindow.destroy()
         self.UpgradeEilerWindow.destroy()
-        #FIXME:
-        root.geometry("740x400")
         self.start.grid(ipadx=740, ipady=400)
         self.create_widgets_start()
 
