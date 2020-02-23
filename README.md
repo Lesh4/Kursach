@@ -5,4 +5,4 @@ Interface:
 
 Result window:
 
-![Image alt](https://github.com/Lesh4/Kursach/raw/master/ResultWindow.png)
+![Image alt](https://github.com/Lesh4/Kursach/raw/development/ResultWindow.png)
