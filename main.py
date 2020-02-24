@@ -7,10 +7,10 @@ from tkinter import messagebox
 TODO: 
 1) make windows with interface
     a) first with values and metod`s buttons                 +
-    b) result window
+    b) result window                                         +
 2) add check for input values (x, y, h and function)
 2) code logic of Eiler                                       +
-3) code logic of Upgrade Eiler
+3) code logic of Upgrade Eiler                               +
 
 """
 
@@ -34,7 +34,14 @@ class Menu(tk.Frame):
         self.y = float(self.entry_y.get())
         self.h = float(self.entry_h.get())
         self.func = self.entry_func.get()
+
+    def start_Eiler(self):
+        self.save_entry()
         self.create_EilerWindow()
+
+    def start_UpgradeEiler(self):
+        self.save_entry()
+        self.create_UpgradeEilerWindow()
 
     def create_widgets_start(self):
         tk.Label(self.start, text = "Решение дифференциальных уравнений", font=("Segoe print", 18), bg = "#F5F5DC").place(x=120, y=30)
@@ -58,8 +65,8 @@ class Menu(tk.Frame):
         self.entry_func = tk.Entry(self.start, width=35)
         self.entry_func.place(x=45, y = 300, height=50)
 
-        Eiler = tk.Button(self.start, text="Метод Эйлера", command=self.save_entry, font=("Segoe print", 11), bg = "#FAEBD7").place(x=500, y=240)
-        UpgradeEiler = tk.Button(self.start, text="Усовершенствованный метод Эйлера", command=self.create_UpgradeEilerWindow, font=("Segoe print", 11), bg = "#FAEBD7").place(x=400, y=300)
+        Eiler = tk.Button(self.start, text="Метод Эйлера", command=self.start_Eiler, font=("Segoe print", 11), bg = "#FAEBD7").place(x=500, y=240)
+        UpgradeEiler = tk.Button(self.start, text="Усовершенствованный метод Эйлера", command=self.start_UpgradeEiler, font=("Segoe print", 11), bg = "#FAEBD7").place(x=400, y=300)
 
     def create_widgets_EilerWindow(self):
         tk.Label(self.EilerWindow, text = "Метод Эйлера", font=("Segoe print", 18), bg = "#F5F5DC").place(x=270, y=30)
@@ -111,3 +118,4 @@ class Menu(tk.Frame):
 root = tk.Tk()
 run = Menu(root)
 root.mainloop()
+ 
