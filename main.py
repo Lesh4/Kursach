@@ -1,18 +1,36 @@
+"""
+***************************************************************
+Курсовой проект по предмету МДК 03.01 Технология разработки программного обеспечения 
+по теме: «Разработка программы решения дифференциальных уравнений»
+Язык: Python 3.7
+Среда: Visual Studio Code
+Название программы: Решение дифференциальных уравнений
+Разработал: Абакумов А.С.
+Дата: 15.02.2020
+****************************************************************
+Задание: 
+Разработать программу решения дифференциальных уравнений:
+- методом Эйлера;
+- усовершенствованным методом Эйлера.
+***************************************************************
+Используемые переменные в основной программе:
+Eiler_list - результат, подсчитанный методом Эйлера;
+UpgradeEiler_list - результат, подсчитанный усовершенствованным методом Эйлера;
+self.x_start - переменная для начального значения x;
+self.x_last - переменная для конечного значения x;
+self.y - переменная для начального значения y;
+self.h - переменная значения шага;
+self.func - переменная для функции вида y` = f(x;y).
+***************************************************************
+Используемые функции:
+Eiler - функция нахождения значений методом Эйлера;
+UpgradeEiler - функция нахождения значений усовершенствованным методом Эйлера.
+***************************************************************'
+"""
 import tkinter as tk
 from Eiler import Eiler
 from UpgradeEiler import UpgradeEiler
 from tkinter import messagebox
-
-"""
-TODO: 
-1) make windows with interface
-    a) first with values and metod`s buttons                 +
-    b) result window                                         +
-2) add check for input values (x, y, h and function)
-2) code logic of Eiler                                       +
-3) code logic of Upgrade Eiler                               +
-
-"""
 
 class Menu(tk.Frame):
     def __init__(self, root):
@@ -29,19 +47,25 @@ class Menu(tk.Frame):
         self.create_widgets_start()
 
     def save_entry(self):
-        self.x_start = float(self.entry_start_x.get())
-        self.x_last = float(self.entry_last_x.get())
-        self.y = float(self.entry_y.get())
-        self.h = float(self.entry_h.get())
-        self.func = self.entry_func.get()
+        try:
+            self.x_start = float(self.entry_start_x.get())
+            self.x_last = float(self.entry_last_x.get())
+            self.y = float(self.entry_y.get())
+            self.h = float(self.entry_h.get())
+            self.func = self.entry_func.get()
+            return True
+        except:
+            tk.messagebox.showerror("Ошибка", "Недопустимые значения")
+            return False
+       
 
     def start_Eiler(self):
-        self.save_entry()
-        self.create_EilerWindow()
+        if self.save_entry():
+            self.create_EilerWindow()
 
     def start_UpgradeEiler(self):
-        self.save_entry()
-        self.create_UpgradeEilerWindow()
+        if self.save_entry():
+            self.create_UpgradeEilerWindow()
 
     def create_widgets_start(self):
         tk.Label(self.start, text = "Решение дифференциальных уравнений", font=("Segoe print", 18), bg = "#F5F5DC").place(x=120, y=30)
