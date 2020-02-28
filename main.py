@@ -28,6 +28,7 @@ UpgradeEiler - функция нахождения значений усовер
 ***************************************************************'
 """
 import tkinter as tk
+from check_entry import check_h, check_x, check_func
 from Eiler import Eiler
 from UpgradeEiler import UpgradeEiler
 from tkinter import messagebox
@@ -53,11 +54,12 @@ class Menu(tk.Frame):
             self.y = float(self.entry_y.get())
             self.h = float(self.entry_h.get())
             self.func = self.entry_func.get()
-            return True
+            if check_h(self.h) and check_x(self.x_start, self.x_last) and check_func(self.x_start, self.y, self.func):
+                return True
         except:
-            tk.messagebox.showerror("Ошибка", "Недопустимые значения")
+            messagebox.showerror("Ошибка", "Недопустимые значения")
             return False
-       
+        
 
     def start_Eiler(self):
         if self.save_entry():
