@@ -49,10 +49,10 @@ class Menu(tk.Frame):
 
     def save_entry(self):
         try:
-            self.x_start = float(self.entry_start_x.get())
-            self.x_last = float(self.entry_last_x.get())
-            self.y = float(self.entry_y.get())
-            self.h = float(self.entry_h.get())
+            self.x_start = float(self.entry_start_x.get().replace(',', '.'))
+            self.x_last = float(self.entry_last_x.get().replace(',', '.'))
+            self.y = float(self.entry_y.get().replace(',', '.'))
+            self.h = float(self.entry_h.get().replace(',', '.'))
             self.func = self.entry_func.get()
             if check_h(self.h) and check_x(self.x_start, self.x_last) and check_func(self.x_start, self.y, self.func):
                 return True
