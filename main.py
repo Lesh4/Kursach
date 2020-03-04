@@ -28,9 +28,9 @@ UpgradeEiler - функция нахождения значений усовер
 ***************************************************************'
 """
 import tkinter as tk
-from check_entry import check_h, check_x, check_func
-from Eiler import Eiler
-from UpgradeEiler import UpgradeEiler
+from packages.check_entry import check_h, check_x, check_func
+from packages.Eiler import Eiler
+from packages.UpgradeEiler import UpgradeEiler
 from tkinter import messagebox
 
 class Menu(tk.Frame):
