@@ -25,3 +25,5 @@ def Eiler(x, x_last, y, h, uravn):
         y += y_del
         x += h
     return res
+
+    #чисто чекнуть че по чем
