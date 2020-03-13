@@ -26,5 +26,3 @@ def Eiler(x, x_last, y, h, uravn):
         x += h
     return res
 
-    #чисто чекнуть че по чем
-    #testing
