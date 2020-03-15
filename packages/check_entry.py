@@ -1,5 +1,6 @@
 from tkinter import messagebox
 from packages.methods_funcs import zamena
+from math import *
 def check_h(h):
     if h > 0:
         return True
