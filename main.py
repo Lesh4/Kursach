@@ -103,8 +103,11 @@ class Menu(tk.Frame):
 
         Eiler_list = Eiler(self.x_start, self.x_last, self.y, self.h, self.func)
         for elem in Eiler_list:
-            mas = [str(el) for el in elem]
-            string = "x = {0}\ny = {1}\ny` = {2}\nyΔ = {3}".format(mas[0], mas[1], mas[2], mas[3])
+            if elem != "Error":
+                mas = [str(el) for el in elem]
+                string = "x = {0}\ny = {1}\ny` = {2}\nyΔ = {3}".format(mas[0], mas[1], mas[2], mas[3])
+            else:
+                string = elem
             text.insert(tk.END, string+'\n\n')
         tk.Button(self.EilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=340)
 
@@ -117,8 +120,11 @@ class Menu(tk.Frame):
 
         UpgradeEiler_list = UpgradeEiler(self.x_start, self.x_last, self.y, self.h, self.func)
         for elem in UpgradeEiler_list:
-            mas = [str(el) for el in elem]
-            string = "x = {0}\ny = {1}\ny` = {2}\nyΔ = {3}".format(mas[0], mas[1], mas[2], mas[3])
+            if elem != "Error":
+                mas = [str(el) for el in elem]
+                string = "x = {0}\ny = {1}\ny` = {2}\nyΔ = {3}".format(mas[0], mas[1], mas[2], mas[3])
+            else:
+                string = elem
             text.insert(tk.END, string+'\n\n')
         tk.Button(self.UpgradeEilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=320)
 
