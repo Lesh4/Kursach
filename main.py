@@ -109,6 +109,7 @@ class Menu(tk.Frame):
             else:
                 string = elem
             text.insert(tk.END, string+'\n\n')
+        text.insert(tk.END, "Результат численного метода: " + str(Eiler_list[-1][-3]))
         tk.Button(self.EilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=340)
 
     def create_widgets_UpgradeEilerWindow(self):
@@ -126,6 +127,7 @@ class Menu(tk.Frame):
             else:
                 string = elem
             text.insert(tk.END, string+'\n\n')
+        text.insert(tk.END, "Результат численного метода: " + str(UpgradeEiler_list[-1][-3]))
         tk.Button(self.UpgradeEilerWindow, text = "Назад", font=("Segoe print", 11), bg = "#FAEBD7", width = 10, command = self.create_start).place(x=580, y=320)
 
     def create_start(self):
