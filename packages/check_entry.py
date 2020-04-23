@@ -17,3 +17,8 @@ def check_func(x, y, func):
         return True
     except:
         messagebox.showerror("Неверный ввод", "Функция введена неверно")
+def check_predel(x_start, x_last, h):
+    if (x_last - x_start)/h < 100:
+        return True
+    else:
+        messagebox.showerror("Ошибка", "Количество итераций превышает 100")
