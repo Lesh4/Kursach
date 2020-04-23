@@ -35,7 +35,7 @@ methods_funcs - второстепенные функции для коррек�
 ***************************************************************
 """
 import tkinter as tk
-from packages.check_entry import check_h, check_x, check_func
+from packages.check_entry import check_h, check_x, check_func, check_predel
 from packages.Eiler import Eiler
 from packages.UpgradeEiler import UpgradeEiler
 from tkinter import messagebox
@@ -65,7 +65,8 @@ class Menu(tk.Frame):
             self.h = float(self.entry_h.get().replace(',', '.'))
             self.func = self.entry_func.get()
             if (check_h(self.h) and check_x(self.x_start, self.x_last) and
-                    check_func(self.x_start, self.y, self.func)):
+                    check_func(self.x_start, self.y, self.func) and
+                    check_predel(self.x_start, self.x_last, self.h)):
                 return True
         except:
             messagebox.showerror("Ошибка", "Недопустимые значения")
