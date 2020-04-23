@@ -18,6 +18,9 @@ from math import *
 from packages.methods_funcs import zamena, check_znaki
 
 def UpgradeEiler(x, x_last, y, h, uravn):
+    """
+    Решение усовершенствованным методом Эйлера.
+    """
     res = []
     try:
         kol = '.' + str(check_znaki(x, x_last, y, h)+1) + 'f'
