@@ -20,7 +20,7 @@ def Eiler(x, x_last, y, h, uravn):
     """
     res = []
     try:
-        kol = '.' + str(check_znaki(x, x_last, y, h)+1) + 'f'
+        kol = '.' + str(check_znaki(x, x_last, y, h)+2) + 'f'
         while x <= x_last:
             uravn_res = eval(zamena(x, y, uravn))
             y_del = h * uravn_res
