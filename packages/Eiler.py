@@ -20,12 +20,12 @@ def Eiler(x, x_last, y, h, uravn):
     """
     res = []
     try:
-        kol = '.' + str(check_znaki(x, x_last, y, h)+2) + 'f'
+        kol = check_znaki(x, x_last, y, h)+2
         while x <= x_last:
-            uravn_res = eval(zamena(x, y, uravn))
-            y_del = h * uravn_res
-            res.append([float(format(x, kol)), float(format(y, kol)),
-                        float(format(uravn_res, kol)), float(format(y_del, kol))])
+            uravn_res = round(eval(zamena(x, y, uravn)), kol)
+            y_del = round(h * uravn_res, kol)
+            res.append([round(x, kol), round(y, kol),
+                        uravn_res, y_del])
             y += y_del
             x += h
     except:
