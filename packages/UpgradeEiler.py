@@ -23,14 +23,14 @@ def UpgradeEiler(x, x_last, y, h, uravn):
     """
     res = []
     try:
-        kol = '.' + str(check_znaki(x, x_last, y, h)+2) + 'f'
+        kol = check_znaki(x, x_last, y, h)+2
+        h_pol = h * 0.5
         while x <= x_last:
-            h_pol = h*0.5
-            y_shtrih = eval(zamena(x, y, uravn)) * (h_pol)
-            uravn_res = eval(zamena(x + h_pol,y + y_shtrih , uravn))
-            y_del = uravn_res * h
-            res.append([float(format(x, kol)), float(format(y, kol)),
-                        float(format(uravn_res, kol)), float(format(y_del, kol))])
+            y_shtrih = round(eval(zamena(x, y, uravn)) * h_pol, kol)
+            uravn_res = round(eval(zamena(x + h_pol,y + y_shtrih , uravn)), kol)
+            y_del = round(uravn_res * h, kol)
+            res.append([round(x, kol), round(y, kol),
+                        uravn_res, y_del])
             y += y_del
             x += h
     except:
