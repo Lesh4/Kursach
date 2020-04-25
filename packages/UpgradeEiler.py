@@ -23,7 +23,7 @@ def UpgradeEiler(x, x_last, y, h, uravn):
     """
     res = []
     try:
-        kol = '.' + str(check_znaki(x, x_last, y, h)+1) + 'f'
+        kol = '.' + str(check_znaki(x, x_last, y, h)+2) + 'f'
         while x <= x_last:
             h_pol = h*0.5
             y_shtrih = eval(zamena(x, y, uravn))*(h_pol)
