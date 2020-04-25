@@ -33,7 +33,7 @@ def check_predel(x_start, x_last, h):
     """
     Проверка на предел итераций, который равен 100.
     """
-    if (x_last - x_start)/h < 100:
+    if (x_last - x_start)/h <= 100:
         return True
     else:
         messagebox.showerror("Ошибка", "Количество итераций превышает 100")
