@@ -169,7 +169,10 @@ class Menu(tk.Frame):
             else:
                 string = elem
             text.insert(tk.END, string+'\n\n')
-        text.insert(tk.END, "Результат численного метода: " + str(UpgradeEiler_list[-1][-3]))
+        if (string != "Error"):
+            text.insert(tk.END, "Результат численного метода: " + str(UpgradeEiler_list[-1][-3]))
+        else:
+            text.insert(tk.END, "Результат численного метода: Error")
         tk.Button(self.UpgradeEilerWindow, text="Назад", font=("Segoe print", 11),
                   bg="#FAEBD7", width=10, command=self.create_start).place(x=580, y=320)
 
