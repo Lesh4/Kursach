@@ -1,2 +1,8 @@
 # Kursach
+Interface:
+
 ![Image alt](https://github.com/Lesh4/Kursach/raw/master/Интерфейс.png)
+
+Result window:
+
+![Image alt](https://github.com/Lesh4/Kursach/raw/development_new/ResultWindow.png)
