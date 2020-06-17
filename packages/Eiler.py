@@ -17,7 +17,7 @@ from packages.methods_funcs import zamena, check_znaki
 def Eiler(x, x_last, y, h, uravn):
     """
     Решение методом Эйлера.
-    """
+"""
     res = []
     try:
         kol = check_znaki(x, x_last, y, h) + 2
