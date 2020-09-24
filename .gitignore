@@ -2,3 +2,7 @@
 *.pyc
 __pycache__/
 *.pyc
+packages/__pycache__/check_entry.cpython-38.pyc
+packages/__pycache__/Eiler.cpython-38.pyc
+packages/__pycache__/methods_funcs.cpython-38.pyc
+packages/__pycache__/UpgradeEiler.cpython-38.pyc
